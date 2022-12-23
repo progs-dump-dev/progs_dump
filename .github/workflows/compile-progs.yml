@@ -18,7 +18,10 @@ jobs:
           path: |
             progs.dat
             progs.lno
-            fgd_def/
+  create-mod-template:
+      - shell: bash
+        run: |
+          cp mod-template-readme.txt progs_dump-devkit-readme.txt
       - name: Upload mod template
         uses: actions/upload-artifact@v3
         with:
