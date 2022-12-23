@@ -1,0 +1,301 @@
+3.0.0 September 2022
+
+* Fixed QSS crash in mobot.qc (paavohuhtala)
+* Fixed syntax error in Enforcer.qc (paavohuhtala)
+* Added in-fighting modes to monsters (ILike80sRock)
+* Added breakable spawnflags to func_fall2 (whirledtsar)
+* Added explosive projectiles to HellKnight (ILike80sRock)
+* Renamed potentially offensive file name (progs.src, spawn.qc)
+* Fixed Voreballs not homing in func_monster_spawner Shalraths (ILike80sRock)
+* Added trigger_changetarget (ILike80sRock)
+* Added Wait for retrigger spawnflag to trigger_multiple (ILike80sRock)
+* Added style 4 to Ogre - shoots lavaballs (JaycieErysdren)
+* Quake Info Pool fixes: https://www.quake-info-pool.net/q1/qcfix.htm
+* Fixed armor affected by drowning damage (dumptruck_ds)
+* Added gravity, solidity, back-and-forth, only once and play count
+  spawnflags to misc_model (Inky, bmFbr)
+* Added trigger/toggle animations to misc_model using target_setstate (bmFbr)
+* Added info_intermissiontext for custom intermission messages (ILike80sRock)
+* Added skip_id1_overrides worldspawn key to disable hardcoded map features
+  like intermissions and E1M8 gravity (ILike80sRock)
+* Added PASSIVE_ALWAYS and PASSIVE_UNTIL_ATTACKED spawnflags (dumptruck_ds)
+* Added Looping spawnflag to play_sound_triggered which allows triggered,
+  looping sounds to restart after a save (bmFbr)
+* Added Turret Mode spawnflag for Grunts, Enforcers, Ogres, Ogre Marksmen,
+  Hellknight, Shalrath, Shamblers and Zombies. (dumptruck_ds, ILike80sRock)
+* Fixed armor taking damage with Pentagram of Protection (johnfitz)
+* Added custom sound keys and new options for func_new_plat (Alkaline, bmFbr)
+* Made Zombies partially z-aware only in Turret Mode (dumptruck_ds, Preach)
+* Removed "in wall" dprint on monster with I_AM_TURRET spawnflag (dumptruck_ds)
+* Fixed Fiend and Dog instakill bug (dumptruck_ds, Preach)
+* Added custom projectiles with exploding options to Wizard (ILike80sRock)
+* Added trigger_textstory and target_textstory to show long centerprint texts
+  can fade background and trigger sounds (bmFbr)
+* Fixed missing sound_attack keys on Grunts (ILike80sRock)
+* Added Style 1 to Shambler (throws lavaballs, works in turret mode)
+  (dumptruck_ds)
+* Added misc_modeltrain allowing custom triggered animations for monster models
+  and other trains (Alkaline, bmFbr)
+* Consolidated TrenchBroom FGDs into one file that now displays custom models
+  and skins (dumptruck_ds, bmFbr)
+* Added homing key to monsters and styles that shoot projectiles (ILike80sRock)
+* Added proj_speed_mod to modify monster projectile speeds (ILike80sRock)
+* Added custom path alignment using origin textures to func_train (TheRektafire)
+* Added in-fighting mode -1 Never in-fight (ILike80sRock)
+* Added Spawn Silently spawnflag to monsters (wait 1 can still be used)
+  (dumptruck_ds)
+* Added trigger_monsterface: Running monsters that do not see their target and
+  touch this will face in the direction of the trigger's angle instead of the
+  unseen target. (TheSolipsist)
+* Added func_shadow, misc_shadowcontroller and switchable shadow support to
+  doors and brushmodels (bmFbr)
+* Added func_togglevisiblewall, a toggleable version of func_wall (bmFbr)
+* Added SILENT spawnflag to func_fall (dumptruck_ds)
+* Added START_HIDDEN spawnflag to misc_model (Alkaline, dumptruck_ds)
+* Added random delay to triggerspawned monsters [delay -1] (dumptruck_ds)
+* Added rapid fire Nailgun styles to Grunt and Enforcer (ILike80sRock)
+* Added KexDynamicLight to entity files (dumptruck_ds)
+* Added custom sound support for func_rotate_door (Inky)
+* Added custom model support to Silver and Gold keys (dumptruck_ds)
+* Replaced sound effects with public domain alternatives (dumptruck_ds)
+* Added custom noise key to misc_sparks (dumptruck_ds)
+* Added light_sprite_flame (dumptruck_ds)
+* Added missing spawnflags to fog entities (dumptruck_ds)
+* item_health_vial will over heal player and rot like Megahealth (dumptruck_ds)
+* Added NO_LAVASPLASH spawnflag to boss2 (dumptruck_ds)
+* Fixed error in item_backpack (dumptruck_ds)
+* Added new spawnflags to func_bossgate and func_episodegate that reverse their
+  functionality (ILike80sRock)
+
+2.0.1 March 2021 (unreleased)
+
+* Small fix to health and shard pickup sounds
+* Added homing key to Shalrath custom turning range for Voreballs (ILike80sRock)
+
+
+2.0.0 December 2020
+
+* Changed version to 2.0.0
+* Added Armor Shard and Health Vial options to drop_item
+* Added drop_item to monsters (drop Silver or Gold key on death)
+* Added drop_item to func_breakable (drop Silver or Gold key)
+* Added impulse 100 to print version number
+* Added custom sound support to item_backpack
+* Added item_health_vial
+* Added item_armor_shard from RMQ
+* Added custom model support to artifacts
+* Added custom model/sound/name support to armor
+* Added "opt-in" Copper health/ammo MDLs instead of stock BSPs
+* Added custom model support to ammo
+* Added custom model/sound support to health
+* Added "frame" key in TrenchBroom flavored FGDs to aid in positioning
+  Crucified or Sleeping Zombies
+* Fixed issues with item_backpack spawnflags. This required changes to
+  the existing spawnflags in progs_dump 1.2.0 RC 1.
+
+
+1.2.0 Release Candidate 1 November 2020
+
+* Added custom sound support to most monsters (idle, attack, sights et al.)
+* Added default noise1 breakable sounds for the "Built-in" method
+  including glass, bricks, metal sounds per style key selection
+* Added Doom style unlock to key doors. (from ILove80sRock branch)
+* Added func_monster_spawner and info_monster_spawnpoint
+  allows specific and random spawning of most standard monsters
+* Added Don't Rotate and Invisible spawnflags to misc_teleporttrain
+  this allows the entity to be a moving spawn point for a
+  func_monster_spawner
+* Fixes and additions to FGDs
+* Added "No Sight Sound" spawnflag (stealthy monsters)
+* Added custom model support to monster_ogre_marksman
+* Added custom projectile model for "Styled" monsters (excluding Ogre Style 3)
+
+1.1.3 September 2020 (unreleased)
+
+* Added trigger_changemusic and trigger_cdtrack
+* Added trigger_look from NullPointPaladin
+* Added new features to trigger_teleport from Zerstörer
+  including "stealth" teleporting (no sound or particles) and random destinations
+* Added Monster only spawnflag to trigger_teleport
+* Added info_teleport_changedest from Qmaster
+  this allows mappers to dynamically change the destination of a trigger_teleport
+* Added trigger_heal from Custents mod
+* Replaced default id1-style noclip behavior with Copper's version
+  players will not interact with any touchable objects while in noclip
+* Added custom monster skins keys for head, bodies and projectiles
+  (excluding Shambler and Scrags)
+* Added alternate attacks to Grunt, Enforcer and Ogres.
+* Added improved z-awareness to Ogre Marksman
+* Added item_backpack with options for custom messages and ammo counts
+* Added cutscene system from Drake devkit with some additions
+* Fixed noise1 and noise2 not working in func_door
+* Added fog and sky settings to worldspawn in FGDs
+* Fixed precache error in trigger_push_custom when no custom sound was selected
+* Added custom model support to monsters including bodies, heads and projectiles
+  (excluding Wizard projectiles and Shambler bolts)
+* Added custom model support to misc_teleporttrain
+* Added custom projectile model to boss2 (killable Chthon version)
+* Added custom body model support to oldone and boss
+* Added custom projectile model support to boss (standard Chthon)
+* Added custom gib model support to most monsters
+
+1.1.2.1 February 2020
+
+* Added skins to debris.mdl for a total of 32 built-in, commonly used textures
+* Added pd_pop2.wav to sound\oldone2 for Shub pain sound effect
+* Added oldone2.qc for killable Shub entity (now gib-able)
+* Added boss2.qc for killable Chthon (now gib-able)
+* Added play_brlight, play_dimlight, play_mflash, play_bfield effects
+* Added play_gibs for consistency (same as meat_shower)
+* Added play_tele for consistency (same as tele_fog)
+* Added ambient_fire sound effect for consistency (same as AmbientFire)
+* Added custom noise field to some play_ entities
+* Fixed id1 DAMAGE_AIM bug in Shub and Chthon (iw)
+* Multiple fixes and optimizations to FGDs (iw)
+* Added reset_items 2 to worldspawn for axe only start (iw)
+* Added berserk key to monsters to suppress pain animations
+  (excluding Bosses, Spawn and Zombies)
+* Added item_key_custom -- use any model as a key (iw)
+* Added skin key to monsters
+* Fish are now gib-able
+* Fixed various legacy id1 bugs (Zungryware)
+* Added ericw entries to worldspawn in FGDs
+* Added ericw entries for func_detail variants in FGDs
+* Fixed various issues involving obituary messages (iw)
+* Fixed targeting and animation issues with sleeping zombies (iw)
+* Fixes to Shambler, Impulse 255 and misc_teleporttrain
+
+1.1.2 October 2019
+
+* Added newflags.qc (iw)
+* Added new spawnflags (iw)
+  4096   Not in Coop
+  8192   Not in Single Player
+  32768  Not on Hard Only
+  65536  Not on Nightmare Only
+* Fixed collision issues in trap_shooter, trap_spikeshooter, trap_switched_shooter
+* Added workaround for if(string) engine bug (iw)
+* Added function SUB_UseAndForgetTargets() to subs.qc (iw)
+* Fixed sight_target firing targets multiple times (iw)
+* Fixed pain_target not using targetname2/3/4 (iw)
+* Fixed messages not displaying with sight_trigger (iw)
+* Make weapons fire their targets in Coop and DM2 modes (iw)
+* Prevent keys firing multiple targets multiple times in Coop (iw)
+* Fixes to func_bob (iw)
+* Fixed messages not displaying with func_counter (iw)
+* Fixed "delay" making func_counter not work (iw)
+* Added SUB_DislodgeRestingEntities to subs.qc (iw)
+* Fixed func_breakable debris sometimes floating (iw)
+* Added pd_lightning demo map
+* Fixed func_laser audio issue when used with func_counter
+* Added GNU License and source to my_mod directory
+
+1.1.1 August 2019
+
+* Added func_elvtr_button and ELEVATOR functionality to func_new_plat (iw)
+* Fix Fiends never going into their pain animation (iw)
+* Fix a critical bug involving func_elvtr_button (iw)
+* Address various FTEQCC warnings (iw)
+* Fix kill count bug with trigger-spawned Rotfish (iw)
+* Fixed qc syntax errors in monsters.qc (iw)
+* Fix various issues involving gravity and ladders (iw)
+* Make trigger_ladder ignore bad (up/down) angles (iw)
+* Fix items not respawning in deathmatch mode (iw)
+* Fix a "friendly monster" bug in trigger spawned monsters (iw)
+* Fix pain_target never firing in some cases (iw)
+* Fix item_health collision with BSP model entities (iw)
+* Fix the weapon_shotgun spawnflag test (iw)
+* Allow "wait" to be set for elevators (iw)
+* other tweaks to DOE elevator code in doeplats.qc (iw)
+* pd_elevator demo level (iw)
+
+1.1.0 Official Release
+
+* Added func_bob and misc_bob (RennyC adapted from AD)
+* Added misc_sparks  (Rubicon2)
+* Added misc_particles (misc_splash from Rubicon2)
+* Added sight_trigger - monsters fire targets upon seeing the player
+* Added keep_ammo to Ogre, Soldier and Enforcer (no "DropBackpack" if set to 1)
+* Added misc_particlespray (from custents)
+
+1.1.0 Release Candidate 3
+
+* Fixed Megahealth respawning issue from RC1 / RC2
+* Fixed incorrect item_health bounding box from RC1 / RC2
+* Fixed Attenuation issue on custom sound entities
+* Added Khreathor's self.particle_offset to spawning items for better tfog
+* Added custom health to monsters (except zombies)
+* Added trigger_take_weapon (a.k.a. axe start)
+* Added weapon_shotgun pickup
+* Added RennyC's func_fall - trap brush that falls out from under the player
+* Added Hipnotic version of trap_spikeshooter (with lavaball and rockets)
+* Added Voreballs, Grenades to trap_spikeshooter
+* Added Rubicon2 "retriggerable" spawnflag and custom sounds to func_train
+* Added gibs to trap_spikeshooter
+* Added lightning trail entities from DOE (for traps and visual effects)
+* Added visual effect entities:
+  play_explosion
+  play_tbabyexplode
+  play_lavasplash
+* Added c0burn's switchable light styles
+* Added custom sound option to play_lavasplash
+* Added custom sound option to func_fall
+* Added Zerstrorer misc_particle_stream
+* Added silent option to func_rotate_door (sounds 4)
+* Added DONT_FADE spawnflag to func_fall
+* Added elec22k.wav for looped lightning sound effects
+* Added pd_lasers test level
+
+1.1.0 Release Candidate 1 & 2
+
+* Added reset_items key to worldspawn entity; resets players items on map load
+  (no need for Rune hacks for custom start maps!)
+* Added classnames to "bonus item fell out of level" and "monster stuck in wall"
+  errors when developer is set to 1.
+* Add entities for Thunder, Water and Sky sounds. Use these when you want to
+* hand place these instead of having VIS.exe add them automatically.
+* Fixed door unlock sound not playing (id software bug)
+* Added ladders
+* Added breakables
+* Added spawn_angry key/value for use with Trigger Spawned monsters
+* Added meat_shower (regular or large, triggerable, silent or random gib sounds)
+* Added trigger_void
+* Added trigger_shake (earthquake)
+* Renamed dtsounds.qc to dtmisc.qc
+* Added deadstuff entities
+* Added ritem (items respawn)
+* Added trigger spawning to items
+* Added items suspended flag
+* Fixed trigger_ladder conflict with trigger_setgravity
+* Added pain_target and pain_threshold
+* Added func_togglewall, func_counter, func_oncount and func_particlefield from
+  Hipnotic
+* Added pd_ladders test level
+* Added pd_zombies and pd_meat maps
+* Added Persistent Key behavior (cnt = 1) to func_door and trigger_usekey
+* Added candle.mdl from Rogue and light_candle qc from Honey
+
+1.0.0 September 2018
+
+RC 4
+
+* added tele_fog //thanks Khreathor!
+* added FireAmbient to fgd
+* revisions to progs_dump_100 sample map.
+
+RC 3
+
+* removed unused spawnflags from fgd
+* revised progs_dump_100 map
+* reverted trigger_hurt, trigger_push to id1 code
+
+RC2 2018-9-15
+
+* added trigger_setgravity from Hipnotic
+* added trigger_usekey from Hipnotic
+* added func_new_plat from Rogue
+* revised dtsounds.qc to avoid crashes when noise values were missing
+* updated manual
+* "new" test map to illustrate additions
+
+RC1 (omitted)
