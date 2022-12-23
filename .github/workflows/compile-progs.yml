@@ -20,6 +20,7 @@ jobs:
             progs.lno
   create-mod-template:
     runs-on: ubuntu-latest
+    needs: compile-progs
     steps:
       - uses: actions/checkout@v3
       - shell: bash
