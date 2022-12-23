@@ -19,6 +19,7 @@ jobs:
             progs.dat
             progs.lno
   create-mod-template:
+    steps:
       - shell: bash
         run: |
           cp mod-template-readme.txt progs_dump-devkit-readme.txt
