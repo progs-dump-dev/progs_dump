@@ -7,11 +7,11 @@ jobs:
       - uses: actions/checkout@v3
       - shell: bash
         run: |
-          sed -i 's#../progs.dat#progs.dat#g' progs.src
+          cd qc
           wget https://www.fteqcc.org/dl/fteqcc_linux64.zip
           unzip fteqcc_linux64.zip
           ./fteqcc64
-      - name: Upload output file
+      - name: Upload progs only
         uses: actions/upload-artifact@v3
         with:
           name: progs-dat
@@ -19,3 +19,17 @@ jobs:
             progs.dat
             progs.lno
             fgd_def/
+      - name: Upload mod template
+        uses: actions/upload-artifact@v3
+        with:
+          name: mod-template
+          path: |
+            progs.dat
+            fgd_def/
+            quake.rc
+            progs/
+            maps/debris/
+            sound/
+            music/
+            qc/
+            progs_dump-devkit-readme.txt
