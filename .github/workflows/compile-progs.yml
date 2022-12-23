@@ -1,4 +1,4 @@
-name: compile-progs
+name: compile-all
 on: [push]
 jobs:
   compile-progs:
