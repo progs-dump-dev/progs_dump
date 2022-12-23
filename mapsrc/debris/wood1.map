@@ -1,0 +1,19 @@
+// Game: Quake
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"wad" "../../wads/pd_300.wad"
+"light" "175"
+"_tb_def" "external:D:/QuakeC/progs_dump/progs_dump_qc/fgd/progs_dump_110.fgd"
+// brush 0
+{
+( -8 2 -6 ) ( -6 2 2 ) ( -6 -2 2 ) woodplank1 4.76923 -2 90 1 1
+( -6 2 2 ) ( 6 2 4 ) ( 6 -2 4 ) woodplank1 14 -6.352 90 1 1
+( 6 -2 4 ) ( 16 -2 -6 ) ( -8 -2 -6 ) woodplank1 14 -4 90 1 1
+( -8 -2 -6 ) ( 16 -2 -6 ) ( 16 0 -6 ) woodplank1 14 -6 90 1 1
+( 14 2 -6 ) ( 14 2 -4 ) ( 6 2 4 ) woodplank1 14 -4 90 1 1
+( 6 2 4 ) ( 14 2 -4 ) ( 16 0 -6 ) woodplank1 13.3333 -5.66667 90 1 1
+( 16 0 -6 ) ( 14 2 -4 ) ( 14 2 -6 ) woodplank1 4 -2 90 1 1
+}
+}

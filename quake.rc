@@ -1,0 +1,24 @@
+// DON'T EDIT THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING! -dumptruck_ds
+//
+// load the base configuration
+exec default.cfg
+
+// load the last saved configuration
+exec config.cfg
+
+bind "F8" "echo Loading autosave...; wait; load auto"
+
+// run a user script file if present
+exec autoexec.cfg
+
+menu_main
+
+scr_usekfont 0
+
+//
+// stuff command line statements
+//
+stuffcmds
+
+// start demos if not allready running a server
+startdemos demo1 demo2 demo3

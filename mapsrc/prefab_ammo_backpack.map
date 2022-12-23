@@ -1,0 +1,231 @@
+// Game: Quake
+// Format: Valve
+// entity 0
+{
+"classname" "worldspawn"
+"mapversion" "220"
+"wad" "../wads/pd_300.wad"
+"_tb_def" "external:../fgd_def/pd_300.fgd"
+"reset_items" "2"
+"style" "1"
+"_tb_mod" "pd_300"
+// brush 0
+{
+( -64 -64 -16 ) ( -64 -63 -16 ) ( -64 -64 -15 ) solid_blue_d [ 2.22045e-16 0 -1 -240 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -64 -16 ) ( -64 -64 -15 ) ( -63 -64 -16 ) solid_blue_d [ 1 0 0 -192 ] [ 0 -2.22045e-16 1 48 ] 0 1 1
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) solid_blue_d [ 1 0 0 -192 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) solid_blue_d [ -4.37114e-08 -1 0 64 ] [ -1 4.37114e-08 0 192 ] 90 1 1
+( 64 448 16 ) ( 65 448 16 ) ( 64 448 17 ) solid_blue_d [ 1 0 0 -192 ] [ 0 -2.22045e-16 -1 -176 ] 0 1 1
+( 960 64 16 ) ( 960 64 17 ) ( 960 65 16 ) solid_blue_d [ 2.22045e-16 0 1 240 ] [ 0 -1 0 0 ] 0 1 1
+}
+// brush 1
+{
+( -64 480 16 ) ( -64 480 17 ) ( -64 479 16 ) solid_gray_d [ 2.22045e-16 0 -1 -96 ] [ 0 -1 0 0 ] 0 1 -1
+( 64 448 144 ) ( 64 448 145 ) ( 65 448 144 ) solid_gray_d [ 1 0 0 64 ] [ 0 -2.22045e-16 1 16 ] 0 1 -1
+( -64 480 16 ) ( -64 479 16 ) ( -63 480 16 ) solid_gray_d [ 1 0 0 -192 ] [ 0 -1 0 48 ] 0 1 -1
+( 64 448 528 ) ( 65 448 528 ) ( 64 447 528 ) solid_gray_d [ 1 0 0 -192 ] [ 0 1 -2.77556e-16 80 ] 0 1 -1
+( -64 480 16 ) ( -63 480 16 ) ( -64 480 17 ) solid_gray_d [ 1 0 0 -192 ] [ 0 -2.22045e-16 -1 112 ] 0 1 -1
+( 960 448 144 ) ( 960 447 144 ) ( 960 448 145 ) solid_gray_d [ 2.22045e-16 0 1 96 ] [ 0 -1 0 0 ] 0 1 -1
+}
+// brush 2
+{
+( -64 -64 144 ) ( -64 -63 144 ) ( -64 -64 145 ) solid_gray_d [ -2.22045e-16 -2.71926e-32 1 96 ] [ -1.22465e-16 1 0 -128 ] 0 1 -1
+( 448 -96 16 ) ( 447 -96 16 ) ( 448 -96 17 ) solid_gray_d [ -1 -1.22465e-16 0 192 ] [ -2.71926e-32 2.22045e-16 -1 112 ] 0 1 -1
+( 448 -96 16 ) ( 448 -95 16 ) ( 447 -96 16 ) solid_gray_d [ -1 -1.22465e-16 0 192 ] [ -1.22465e-16 1 0 -80 ] 180 1 -1
+( 320 -64 528 ) ( 319 -64 528 ) ( 320 -63 528 ) solid_gray_d [ -1 -1.22465e-16 0 192 ] [ 1.22465e-16 -1 -2.77556e-16 -48 ] 180 1 -1
+( 320 -64 144 ) ( 320 -64 145 ) ( 319 -64 144 ) solid_gray_d [ -1 -1.22465e-16 0 448 ] [ -2.71926e-32 2.22045e-16 1 16 ] 0 1 -1
+( 960 -96 16 ) ( 960 -96 17 ) ( 960 -95 16 ) solid_gray_d [ -2.22045e-16 -2.71926e-32 -1 -96 ] [ -1.22465e-16 1 0 -128 ] 0 1 -1
+}
+// brush 3
+{
+( -96 -64 16 ) ( -96 -63 16 ) ( -96 -64 17 ) solid_gray_d [ -2.77556e-16 1 2.22045e-16 192 ] [ -3.69779e-32 2.22045e-16 -1 112 ] 0 1 -1
+( -96 -64 16 ) ( -96 -64 17 ) ( -95 -64 16 ) solid_gray_d [ -2.22045e-16 -2.46519e-32 -1 -96 ] [ 1 2.77556e-16 -2.22045e-16 -128 ] 0 1 -1
+( -96 -64 16 ) ( -95 -64 16 ) ( -96 -63 16 ) solid_gray_d [ -1 -1.22465e-16 0 192 ] [ -1.22465e-16 1 0 -80 ] 180 1 -1
+( -64 64 528 ) ( -64 65 528 ) ( -63 64 528 ) solid_gray_d [ -1 -1.22465e-16 0 192 ] [ 1.22465e-16 -1 -2.77556e-16 -48 ] 180 1 -1
+( -64 448 144 ) ( -63 448 144 ) ( -64 448 145 ) solid_gray_d [ -2.22045e-16 -2.46519e-32 1 96 ] [ 1 2.77556e-16 2.22045e-16 -128 ] 0 1 -1
+( -64 64 144 ) ( -64 64 145 ) ( -64 65 144 ) solid_gray_d [ 2.22045e-16 -1 -2.22045e-16 64 ] [ 0 -2.22045e-16 1 16 ] 0 -1 -1
+}
+// brush 4
+{
+( 960 320 144 ) ( 960 320 145 ) ( 960 319 144 ) solid_gray_d [ 2.22045e-16 -1 -2.22045e-16 -64 ] [ 0 -2.22045e-16 1 16 ] 0 1 -1
+( 960 -64 144 ) ( 959 -64 144 ) ( 960 -64 145 ) solid_gray_d [ 2.22045e-16 0 1 96 ] [ -1 -2.22045e-16 2.22045e-16 0 ] 0 1 -1
+( 992 448 16 ) ( 991 448 16 ) ( 992 447 16 ) solid_gray_d [ 1 0 0 -192 ] [ 0 -1 0 48 ] 0 1 -1
+( 960 320 528 ) ( 960 319 528 ) ( 959 320 528 ) solid_gray_d [ 1 0 0 -192 ] [ 0 1 -2.77556e-16 80 ] 0 1 -1
+( 992 448 16 ) ( 992 448 17 ) ( 991 448 16 ) solid_gray_d [ 2.22045e-16 0 -1 -96 ] [ -1 -2.22045e-16 -2.22045e-16 0 ] 0 1 -1
+( 992 448 16 ) ( 992 447 16 ) ( 992 448 17 ) solid_gray_d [ 2.22045e-16 -1 2.22045e-16 -192 ] [ 0 -2.22045e-16 -1 112 ] 0 1 -1
+}
+// brush 5
+{
+( -64 -64 528 ) ( -64 -63 528 ) ( -64 -64 529 ) solid_drk_blue_d [ 2.22045e-16 0 -1 -240 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -64 528 ) ( -64 -64 529 ) ( -63 -64 528 ) solid_drk_blue_d [ 1 0 0 -192 ] [ 0 -2.22045e-16 1 48 ] 0 1 1
+( -64 -64 528 ) ( -63 -64 528 ) ( -64 -63 528 ) solid_gray_d [ -1 -1.22465e-16 0 0 ] [ -1.22465e-16 1 -1.11022e-16 0 ] 0 1 -1
+( 64 64 560 ) ( 64 65 560 ) ( 65 64 560 ) solid_drk_blue_d [ 1 0 0 64 ] [ 0 -1 0 192 ] 0 1 1
+( 64 448 560 ) ( 65 448 560 ) ( 64 448 561 ) solid_drk_blue_d [ 1 0 0 -192 ] [ 0 -2.22045e-16 -1 -176 ] 0 1 1
+( 960 64 560 ) ( 960 64 561 ) ( 960 65 560 ) solid_drk_blue_d [ 2.22045e-16 0 1 240 ] [ 0 -1 0 0 ] 0 1 1
+}
+// brush 6
+{
+( 896 -64 -32 ) ( 896 -63 -32 ) ( 896 -64 -31 ) d64x32 [ 0 -1 0 0 ] [ 0 0 -1 16 ] 0 1 1
+( 896 -64 -32 ) ( 896 -64 -31 ) ( 897 -64 -32 ) d64x32 [ 1 0 0 0 ] [ 0 0 -1 16 ] 0 1 1
+( 896 -64 16 ) ( 897 -64 16 ) ( 896 -63 16 ) d64x32 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 960 0 80 ) ( 960 1 80 ) ( 961 0 80 ) d64x32 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 960 0 -16 ) ( 961 0 -16 ) ( 960 0 -15 ) d64x32 [ -1 0 0 0 ] [ 0 0 -1 16 ] 0 1 1
+( 960 0 -16 ) ( 960 0 -15 ) ( 960 1 -16 ) d64x32 [ 0 1 0 0 ] [ 0 0 -1 16 ] 0 1 1
+}
+}
+// entity 1
+{
+"classname" "light"
+"origin" "248 200 168"
+"_color" "255 226 250"
+}
+// entity 2
+{
+"classname" "info_player_start"
+"origin" "32 224 40"
+}
+// entity 3
+{
+"classname" "item_backpack"
+"origin" "368 288 16"
+"spawnflags" "4"
+"netname" "the nails"
+"ammo_nails" "25"
+"mdl_body" "maps/b_nail0.bsp"
+}
+// entity 4
+{
+"classname" "item_cells"
+"origin" "640 240 16"
+}
+// entity 5
+{
+"classname" "item_shells"
+"origin" "640 192 16"
+}
+// entity 6
+{
+"classname" "item_rockets"
+"origin" "640 144 16"
+}
+// entity 7
+{
+"classname" "item_spikes"
+"origin" "640 288 16"
+}
+// entity 8
+{
+"classname" "item_backpack"
+"origin" "256 288 16"
+"spawnflags" "4"
+"netname" "the nails"
+"ammo_nails" "50"
+"mdl_body" "maps/b_nail1.bsp"
+}
+// entity 9
+{
+"classname" "item_spikes"
+"origin" "544 288 16"
+"spawnflags" "1"
+}
+// entity 10
+{
+"classname" "item_cells"
+"origin" "544 240 16"
+"spawnflags" "1"
+}
+// entity 11
+{
+"classname" "item_shells"
+"origin" "544 192 16"
+"spawnflags" "1"
+}
+// entity 12
+{
+"classname" "item_rockets"
+"origin" "544 144 16"
+"spawnflags" "1"
+}
+// entity 13
+{
+"classname" "item_backpack"
+"origin" "368 240 16"
+"spawnflags" "16"
+"netname" "the cells"
+"mdl_body" "maps/b_batt0.bsp"
+"ammo_cells" "6"
+}
+// entity 14
+{
+"classname" "item_backpack"
+"origin" "368 192 16"
+"spawnflags" "2"
+"netname" "the shells"
+"mdl_body" "maps/b_shell0.bsp"
+"ammo_shells" "20"
+}
+// entity 15
+{
+"classname" "item_backpack"
+"origin" "368 144 16"
+"spawnflags" "8"
+"netname" "the rockets"
+"mdl_body" "maps/b_rock0.bsp"
+"ammo_rockets" "5"
+}
+// entity 16
+{
+"classname" "item_backpack"
+"origin" "256 240 16"
+"spawnflags" "16"
+"netname" "the cells"
+"mdl_body" "maps/b_batt1.bsp"
+"ammo_cells" "12"
+}
+// entity 17
+{
+"classname" "item_backpack"
+"origin" "256 192 16"
+"spawnflags" "2"
+"netname" "the shells"
+"mdl_body" "maps/b_shell1.bsp"
+"ammo_shells" "40"
+}
+// entity 18
+{
+"classname" "item_backpack"
+"origin" "256 144 16"
+"spawnflags" "8"
+"netname" "the rockets"
+"mdl_body" "maps/b_rock1.bsp"
+"ammo_rockets" "10"
+}
+// entity 19
+{
+"classname" "light"
+"origin" "376 200 168"
+}
+// entity 20
+{
+"classname" "light"
+"origin" "120 328 88"
+"style" "2"
+}
+// entity 21
+{
+"classname" "light"
+"origin" "104 40 88"
+"style" "2"
+}
+// entity 22
+{
+"classname" "item_backpack"
+"origin" "464 224 96"
+"spawnflags" "129"
+}
+// entity 23
+{
+"classname" "light"
+"origin" "840 328 88"
+"style" "2"
+}
