@@ -23,24 +23,24 @@ jobs:
     needs: compile-progs
     steps:
       - uses: actions/checkout@v3
-      - shell: bash
-        run: |
-          cp mod-template-readme.txt progs_dump-devkit-readme.txt
       - name: Download compiled progs
         uses: actions/download-artifact@v3
         with:
           name: progs-dat  
+      - shell: bash
+        run: |
+          mkdir my_mod
+          cp mod-template-readme.txt my_mod/progs_dump-devkit-readme.txt
+          cp progs.dat my_mod/
+          cp -r fgd_def/ my_mod/
+          cp quake.rc my_mod/
+          cp -r progs/ my_mod/
+          cp -r maps/debris/ my_mod/
+          cp -r sound/ my_mod/
+          cp -r music/ my_mod/
+          cp -r qc/ my_mod/
       - name: Upload mod template
         uses: actions/upload-artifact@v3
         with:
           name: mod-template
-          path: |
-            progs.dat
-            fgd_def/
-            quake.rc
-            progs/
-            maps/debris/
-            sound/
-            music/
-            qc/
-            progs_dump-devkit-readme.txt
+          path: my_mod/
