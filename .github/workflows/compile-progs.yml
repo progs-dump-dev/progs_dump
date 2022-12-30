@@ -43,4 +43,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: mod-template
-          path: my_mod/
+          path: my_mod
