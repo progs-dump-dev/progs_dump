@@ -29,13 +29,13 @@ jobs:
           name: progs-dat  
       - shell: bash
         run: |
-          mkdir -p mod_template/my_mod
+          mkdir -p mod_template/my_mod/maps
           cp mod-template-readme.txt mod_template/my_mod/progs_dump-devkit-readme.txt
           cp progs.dat mod_template/my_mod/
           cp -r fgd_def/ mod_template/my_mod/
           cp quake.rc mod_template/my_mod/
           cp -r progs/ mod_template/my_mod/
-          cp -r maps/debris/ mod_template/my_mod/
+          cp -r maps/debris/ mod_template/my_mod/maps/
           cp -r sound/ mod_template/my_mod/
           cp -r music/ mod_template/my_mod/
           cp -r qc/ mod_template/my_mod/
