@@ -29,18 +29,18 @@ jobs:
           name: progs-dat  
       - shell: bash
         run: |
-          mkdir my_mod
-          cp mod-template-readme.txt my_mod/progs_dump-devkit-readme.txt
-          cp progs.dat my_mod/
-          cp -r fgd_def/ my_mod/
-          cp quake.rc my_mod/
-          cp -r progs/ my_mod/
-          cp -r maps/debris/ my_mod/
-          cp -r sound/ my_mod/
-          cp -r music/ my_mod/
-          cp -r qc/ my_mod/
+          mkdir -p mod_template/my_mod
+          cp mod-template-readme.txt mod_template/my_mod/progs_dump-devkit-readme.txt
+          cp progs.dat mod_template/my_mod/
+          cp -r fgd_def/ mod_template/my_mod/
+          cp quake.rc mod_template/my_mod/
+          cp -r progs/ mod_template/my_mod/
+          cp -r maps/debris/ mod_template/my_mod/
+          cp -r sound/ mod_template/my_mod/
+          cp -r music/ mod_template/my_mod/
+          cp -r qc/ mod_template/my_mod/
       - name: Upload mod template
         uses: actions/upload-artifact@v3
         with:
           name: mod-template
-          path: my_mod
+          path: mod_template/
