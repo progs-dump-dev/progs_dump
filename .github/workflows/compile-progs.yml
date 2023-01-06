@@ -86,5 +86,5 @@ jobs:
       - name: Upload mod template
         uses: actions/upload-artifact@v3
         with:
-          name: mod-template
-          path: mod_template/
+          name: pd_devkit
+          path: devkit/
