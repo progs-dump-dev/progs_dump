@@ -1,4 +1,4 @@
-name: compile-all
+name: Create release files
 on: [push]
 jobs:
   compile-progs:
@@ -66,7 +66,10 @@ jobs:
       - name: Make mod template zip
         shell: bash
         run: |
-          zip mod_template.zip mod_template/my_mod
+          cd mod_template
+          zip -r mod_template.zip my_mod
+          mv mod_template.zip ../
+          cd ../
       - name: Set up folder structure
         shell: bash
         run: |
@@ -83,7 +86,7 @@ jobs:
           cp -r music/ devkit/pd_devkit/
           cp -r qc/ devkit/pd_devkit/
           cp -r wads/ devkit/pd_devkit/
-      - name: Upload mod template
+      - name: Upload devkit
         uses: actions/upload-artifact@v3
         with:
           name: pd_devkit
