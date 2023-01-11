@@ -1,5 +1,9 @@
 name: Create release files
-on: [push]
+on:
+  push:
+    branches:
+      - main 
+  pull_request:
 jobs:
   compile-progs:
     name: Compile progs.dat
