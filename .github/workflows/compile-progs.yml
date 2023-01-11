@@ -89,6 +89,7 @@ jobs:
           cp -r readme.txt devkit/pd-devkit/progs_dump_devkit_readme.txt
           cd devkit
           zip -r pd-devkit.zip pd-devkit
+          rm -r pd-devkit
       - name: Upload devkit
         uses: actions/upload-artifact@v3
         with:
