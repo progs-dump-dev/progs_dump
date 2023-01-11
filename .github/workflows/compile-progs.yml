@@ -33,21 +33,21 @@ jobs:
       - name: Set up folder structure
         shell: bash
         run: |
-          mkdir -p mod_template/my_mod/maps
-          cp mod-template-readme.txt mod_template/my_mod/progs_dump-devkit-readme.txt
-          cp progs.dat mod_template/my_mod/
-          cp -r fgd_def/ mod_template/my_mod/
-          cp quake.rc mod_template/my_mod/
-          cp -r progs/ mod_template/my_mod/
-          cp -r maps/debris/ mod_template/my_mod/maps/
-          cp -r sound/ mod_template/my_mod/
-          cp -r music/ mod_template/my_mod/
-          cp -r qc/ mod_template/my_mod/
+          mkdir -p mod-template/my_mod/maps
+          cp mod-template-readme.txt mod-template/my_mod/progs_dump-devkit-readme.txt
+          cp progs.dat mod-template/my_mod/
+          cp -r fgd_def/ mod-template/my_mod/
+          cp quake.rc mod-template/my_mod/
+          cp -r progs/ mod-template/my_mod/
+          cp -r maps/debris/ mod-template/my_mod/maps/
+          cp -r sound/ mod-template/my_mod/
+          cp -r music/ mod-template/my_mod/
+          cp -r qc/ mod-template/my_mod/
       - name: Upload mod template
         uses: actions/upload-artifact@v3
         with:
           name: mod-template
-          path: mod_template/
+          path: mod-template/
   create-full-devkit:
     name: Create full devkit 
     runs-on: ubuntu-latest
@@ -62,32 +62,35 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: mod-template
-          path: mod_template/
+          path: mod-template/
       - name: Make mod template zip
         shell: bash
         run: |
-          cd mod_template
-          zip -r mod_template.zip my_mod
-          mv mod_template.zip ../
+          cd mod-template
+          zip -r mod-template.zip my_mod
+          mv mod-template.zip ../
           cd ../
       - name: Set up folder structure
         shell: bash
         run: |
-          mkdir -p devkit/pd_devkit
-          cp mod_template.zip devkit/pd_devkit/
-          cp progs_dump_manual_300.pdf devkit/pd_devkit/
-          cp progs.dat devkit/pd_devkit/
-          cp -r fgd_def/ devkit/pd_devkit/
-          cp quake.rc devkit/pd_devkit/
-          cp -r progs/ devkit/pd_devkit/
-          cp -r maps/ devkit/pd_devkit/
-          cp -r mapsrc/ devkit/pd_devkit/
-          cp -r sound/ devkit/pd_devkit/
-          cp -r music/ devkit/pd_devkit/
-          cp -r qc/ devkit/pd_devkit/
-          cp -r wads/ devkit/pd_devkit/
+          mkdir -p devkit/pd-devkit
+          cp mod-template.zip devkit/pd-devkit/
+          cp progs_dump_manual_300.pdf devkit/pd-devkit/
+          cp progs.dat devkit/pd-devkit/
+          cp -r fgd_def/ devkit/pd-devkit/
+          cp quake.rc devkit/pd-devkit/
+          cp -r progs/ devkit/pd-devkit/
+          cp -r maps/ devkit/pd-devkit/
+          cp -r mapsrc/ devkit/pd-devkit/
+          cp -r sound/ devkit/pd-devkit/
+          cp -r music/ devkit/pd-devkit/
+          cp -r qc/ devkit/pd-devkit/
+          cp -r wads/ devkit/pd-devkit/
+          cp -r readme.txt devkit/pd-devkit/progs_dump_devkit_readme.txt
+          cd devkit
+          zip -r pd-devkit.zip pd-devkit
       - name: Upload devkit
         uses: actions/upload-artifact@v3
         with:
-          name: pd_devkit
+          name: pd-devkit
           path: devkit/
