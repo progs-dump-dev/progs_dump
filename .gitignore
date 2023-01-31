@@ -7,6 +7,11 @@ progs.*
 *.log
 *.prt
 *.texinfo.json
-mapsrc/autosave/
+autosave/
 mapsrc/*.bsp
+mapsrc/*.lit
 mapsrc/*-compile.map
+*.pts
+
+# Ironwail screenshots folder
+screenshots/
