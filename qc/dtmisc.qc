@@ -1133,7 +1133,10 @@ void() heal_touch =
       dprint(ftos(calculated_healing));
       dprint("]\n");
     }
-    
+    if (self.message)
+    {
+      centerprint(other, self.message);
+    }
     T_Heal (other, calculated_healing, 1);
 		other.heal_timer = time + self.wait;
 	}
