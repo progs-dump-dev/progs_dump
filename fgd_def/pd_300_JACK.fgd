@@ -2880,12 +2880,18 @@ spawnflags(flags) =
 	]
 ]
 //____TW_EDIT____
-@SolidClass  base(Appearflags, OneTargetname, TriggerWait) = trigger_heal : "Trigger: Heal - Any object touching this will be healed. 'heal_amount ' - the amount to heal each time (default 5). 'wait ' - the time between each healing (default 1). 'health_max' - the upper limit for the healing (default 100, max 250). 'noise' - path to custom sound file."
+@SolidClass  base(Appearflags, OneTargetname, TriggerWait) = trigger_heal : "Trigger: Heal - Any object touching this will be healed. 'heal_amount ' - the amount to heal each time (default 5). 'wait ' - the time between each healing (default 1). 'health_max' - the upper limit for the healing (default 100, max 250). 'noise' - path to custom sound file. 'message' - message to print on heal. 'count' - maximum heal before exhausted. 'speed' - amount to recharge at a time. 'delay' - time before recharging. 'message2' - message to print when exhausted."
 [
 	wait(integer) : "Time between each healing (default 1)" : 1
 	heal_amount(integer) : "Healing per second" : 5
 	health_max(integer) : "Maximum heath given" : 100 : "The upper limit for healing (default 100, max 250)"
 	noise(string) : "Path to custom healing sound."
+	
+	message(string) : "Message to print on heal"
+	count(integer) : "Maximum to heal before exhausted"
+	speed(integer) : "Amount to recharge at a time"
+	delay(integer) : "Time before / between recharging"
+	message2(string) : "Message to print when exhausted"
 	spawnflags(Flags) =
 	[
 		// 1 : "Start on (if targeted)" : 0 : "Start on if using targetname. Only needed if triggered by something other than touching."
