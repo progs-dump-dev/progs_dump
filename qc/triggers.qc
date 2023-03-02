@@ -261,47 +261,69 @@ void() trigger_secret =
 	trigger_multiple ();
 };
 
-//=============================================================================
+/*
+==============================================================================
 
+Added custom message options for trigger_counter.
+-- rijuma
+
+==============================================================================
+*/
 
 void() counter_use =
 {
 	if (self.estate != STATE_ACTIVE) return;
 
+	// Is self.count is 0 or less, this was already done. Ignore.
+	if (self.count <= 0) return;
+	
 	self.count = self.count - 1;
-	if (self.count < 0)
-		return;
+	
+	// Check conditions for showing message
+	local float showMessage = (activator.classname == "player" && (self.spawnflags & SPAWNFLAG_NOMESSAGE) == 0);
+	
+	// If the count reaches 0, we trigger the event.
+	if (self.count == 0) {
+		if (showMessage)
+			centerprint (activator, self.message_complete);
 
-	if (self.count != 0)
-	{
-		if (activator.classname == "player"
-		&& (self.spawnflags & SPAWNFLAG_NOMESSAGE) == 0)
-		{
-			if (self.count >= 4)
-				centerprint (activator, "There are more to go...");
-			else if (self.count == 3)
-				centerprint (activator, "Only 3 more to go...");
-			else if (self.count == 2)
-				centerprint (activator, "Only 2 more to go...");
-			else
-				centerprint (activator, "Only 1 more to go...");
-		}
-		return;
+		self.enemy = activator;
+		return multi_trigger ();
 	}
 
-	if (activator.classname == "player"
-	&& (self.spawnflags & SPAWNFLAG_NOMESSAGE) == 0)
-		centerprint(activator, "Sequence completed!");
-	self.enemy = activator;
-	multi_trigger ();
+	// Otherwise, more activations remain, so let's handle that.
+
+	// If there's no message, then nothing to do here.
+	if (!showMessage) return;
+
+	// First we check if we want to tell exactly how many attempts we have left or not.
+	// If the remaining count is greater than count_more, we do use message_more.
+	// Use count_more = -1 to never use message_more (Always use message_count).
+	if (self.count_more != -1 && self.count > self.count_more) {
+		// If message_more is set, we use it (no count shown).
+		if (self.message_more)
+			return centerprint (activator, self.message_more);
+
+		// Otherwise we concatenate the partial strings with the current count.
+		return centerprint_builtin5 (activator, self.message_more_a, " ", ftos(self.count), " ", self.message_more_b);
+	}
+
+	// If only one remains, we check if we have a custom message for this case, otherwise we use the template.
+	if (self.count == 1 && self.message_one)
+		return centerprint (activator, self.message_one);
+	
+	// Lastly, we show the template (how I miss string handling functions *sigh*...).
+
+	// If message_count is set, we use it (no count shown).
+	if (self.message_count)
+		return centerprint (activator, self.message_count);
+
+	// Otherwise we concatenate the partial strings with the current count.
+	return centerprint_builtin5 (activator, self.message_count_a, " ", ftos(self.count), " ", self.message_count_b);
 };
 
 /*QUAKED trigger_counter (.5 .5 .5) ? nomessage X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
-
 Acts as an intermediary for an action that takes multiple inputs.
-
-If nomessage is not set, t will print "1 more.. " etc when triggered and "sequence complete" when finished.
-
 After the counter has been triggered "count" times (default 2), it will fire all of it's targets and remove itself.
 */
 void() trigger_counter =
@@ -309,10 +331,47 @@ void() trigger_counter =
 	if (SUB_Inhibit ())  // new spawnflags for all entities -- iw
 		return;
 
-	self.wait = -1;
+	// Default values
 	if (!self.count)
 		self.count = 2;
 
+	if (self.message_complete) {
+		// Backwards compatibility only. The 'message' parameter is discouraged.
+		if (self.message) 
+			self.message_complete = self.message;
+		else if (!self.message_complete)
+			self.message_complete = "Sequence completed!";
+	}
+
+	if (self.message_more) {
+		// We prioritize self.message_more over the partials.
+		self.message_more_a = "";
+		self.message_more_b = "";
+	} if (!self.message_more_a && !self.message_more_b) {
+		// Defaults are only set if partials are not set.
+		self.message_more = "There are more to go...";
+	}
+
+	if (self.message_count) {
+		// We prioritize self.message_count over the partials.
+		self.message_count_a = "";
+		self.message_count_b = "";
+	} if (!self.message_count_a && !self.message_count_b) {
+		// Defaults are only set if both are empty.
+		// This allows the use of only one part or both.
+		self.message_count_a = "Only";
+		self.message_count_b = "more to go...";
+	}
+
+	if (!self.count_more)
+		self.count_more = 3;
+
+	// Clear deprecated message parameter.
+	self.message = "";
+
+	// This disables wait for some reason, I've removed it from the .fgd/.def file. Maybe a TODO check for this functionality?
+	self.wait = -1; 
+	
 	self.use = counter_use;
 };
 
