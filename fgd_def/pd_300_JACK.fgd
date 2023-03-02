@@ -2171,12 +2171,31 @@ spawnflags(Flags) =
 	height(integer) : "Jump Height" : 200
 	spawnflags(flags) = [ 8: "Start Off (toggles)" : 0 ] //dumptruck_ds
 ]
-@PointClass base(Appearflags, Target, Targetname) = trigger_counter : "Trigger: Counter"
+@PointClass base(Appearflags, Target, Targetname) = trigger_counter : "Trigger: Counter
+
+message_complete: Message to show when the sequence is complete.
+message_more: Message to show when there are more to go. This has precedence over the partials.
+message_more_a: First part of the 'more' message.
+message_more_b: Last part of the 'more' message.
+message_count: Message to show when there are few to go. This has precedence over the partials.
+message_count_a: First part of the 'count' message.
+message_count_b: Last part of the 'count' message.
+message_one (optional): Custom message when only one remains.
+count_more: If more than this quantity remains, the 'more' message variant is used. Otherwise uses the 'count' message. -1 to always use 'count' variant.
+
+Notes: The 'more' and 'few' version depends on the 'count_more' value."
 [
 	spawnflags(flags) = [ 1: "No Message" : 0 ]
 	count(integer) : "Count before trigger" : 2
-	delay (integer) : "Delay"
-	message(string) : "Message"
+	message_complete(string) : "Message on sequence completed" : "Sequence completed!"
+	message_more(string) : "Message to show when there are more to go." : "There are more to go..."
+	message_more_a(string) : "First part of the 'more' message."
+	message_more_b(string) : "Last part of the 'more' message."
+	message_count(string) : "Message to specify the remaining count. Use 'pre' and 'post' variants instead if you want to show the remaining count."
+	message_count_a(string) : "First part of the 'count' message." : "Only"
+	message_count_b(string) : "Last part of the 'count' message." : "more to go..."
+	message_one(string) : "Custom message when there's only one more to go (optional)"
+	count_more(integer) : "If more than this quantity remains, the 'more' message will be used. Use -1 to always show the count variant." : 3
 ]
 @SolidClass base(Angle, Appearflags, Targetname, TriggerWait) = trigger_push : "Trigger: Push"
 [

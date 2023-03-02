@@ -788,9 +788,19 @@ set "message" to text string
 
 Acts as an intermediary for an action that takes multiple inputs.
 
-If nomessage is not set, t will print "1 more.. " etc when triggered and "sequence complete" when finished.
+Personalize messages:
+- message_complete: Message to show when the sequence is complete. (default: "Sequence completed!")
+- message_more: Message to show when there are more to go. (default: "There are more to go..."). This has precedence over the partials.
+- message_more_a: First part of the 'more' message.
+- message_more_b: Last part of the 'more' message.
+- message_count: Message to show when there are few to go. This has precedence over the partials.
+- message_count_a: First part of the 'count' message. (default: "Only")
+- message_count_b: Last part of the 'count' message. (default: "more to go...")
+- message_one (optional): Custom message when only one remains.
+- count: After the counter has been triggered "count" times it will fire all of it's targets and remove itself. (default: 2)
+- count_more: If more than this quantity remains, the 'more' message variant is used. Otherwise uses the 'count' message. -1 to always use 'count' variant. (default: 3)
 
-After the counter has been triggered "count" times (default 2), it will fire all of it's targets and remove itself.
+Note: The 'more' and 'few' version depends on the 'count_more' value.
 */
 /*QUAKED info_teleport_changedest (0 0.5 0) (-8 -8 -8) (8 8 8) X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 Allows a mapper to change the target of a teleport_trigger. Useful in maps where
