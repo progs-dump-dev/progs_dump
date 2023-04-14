@@ -1,2 +1,17 @@
 mod_template
 progs.*
+*.cfg
+*.zip
+
+# Map compilation leftovers
+*.log
+*.prt
+*.texinfo.json
+autosave/
+mapsrc/*.bsp
+mapsrc/*.lit
+mapsrc/*-compile.map
+*.pts
+
+# Ironwail screenshots folder
+screenshots/
