@@ -1150,6 +1150,58 @@ void() trigger_take_weapon =
 	SUB_CheckWaiting();
 };
 
+
+//=============================================================================
+
+void(string skybox) changeskybox = 
+{
+	WriteByte(MSG_ALL, SVC_SKYBOX);
+  	WriteString(MSG_ALL, skybox);
+} 
+
+void() trigger_changeskybox_touch =
+{
+	// from Copper -- dumptruck_ds
+	if (!CheckValidTouch()) return;
+
+	if (!(other.flags & FL_CLIENT))
+	{
+		return;
+	}
+	changeskybox(self.skybox);
+	self.touch = SUB_Null;
+	self.nextthink = (time + 0.1);
+	self.think = SUB_Remove;
+}
+
+/*QUAKED trigger_changeskybox (.5 .5 .5) ? X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
+A trigger brush that changes the skybox. Place skybox files in gfx/env */
+void() trigger_changeskybox =
+{
+	if (SUB_Inhibit ())  // new spawnflags for all entities -- iw
+		return;
+
+	InitTrigger();
+	self.touch = trigger_changeskybox_touch;
+	
+	SUB_CheckWaiting();
+};
+
+void() trigger_skybox_use = //point entity version uses count for music track number for backwards compatibly in Adoria mod -- dumptruck_ds
+{
+	changeskybox(self.skybox);
+};
+/*QUAKED trigger_skybox (.7 .7 .7) X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
+A point entity that changes the skybox when triggered. Place skybox files in gfx/env
+*/
+void() trigger_skybox =
+{
+	if (SUB_Inhibit ())  // new spawnflags for all entities -- iw
+		return;
+	InitTrigger();
+	self.use = trigger_skybox_use;
+};
+
 void(float newtrack) changemusic =
 {
   *world_sounds = newtrack;  //changing the field via a pointer

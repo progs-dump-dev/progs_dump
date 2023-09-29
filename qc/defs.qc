@@ -350,7 +350,7 @@ float	SVC_FINALE			= 31;
 float	SVC_CDTRACK			= 32;
 float	SVC_SELLSCREEN		= 33;
 float SVC_CUTSCENE        = 34;   // Hipnotic Drake devkit -- dumptruck_ds
-
+float SVC_SKYBOX		  = 37;	// [string] name
 
 
 float	TE_SPIKE		= 0;
@@ -599,6 +599,9 @@ float	AS_TURRET		= 5;
 .string targetname4;	// fourth name
 .string killtarget2;	// second target to kill
 string lastnameused;	// the targetname that was last used to trigger somthing
+
+// variable for skybox name
+.string skybox;
 
 
 //
