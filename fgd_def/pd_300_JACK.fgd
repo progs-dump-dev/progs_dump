@@ -2755,6 +2755,14 @@ noise(string) : "Path to custom sound"
 	noise1(string) : "Sound Upon Deactivation"
 ]
 
+@SolidClass base(Appearflags, TriggerWait, OneTargetname) = trigger_changeskybox : "Trigger that changes the skybox. Place skybox files in gfx/env"
+[
+skybox(string) : "Skybox name" :  : "Eg: mak_nightsky1_"
+]
+@PointClass base(Appearflags, Targetname) size(-8 -8 -8, 8 8 8) color(128 128 255) = trigger_skybox : "Trigger that changes the skybox. Place skybox files in gfx/env" [
+    skybox(string) : "Skybox name" :  : "Eg: mak_nightsky1_"
+]
+
 @SolidClass base(Appearflags, TriggerWait, OneTargetname) = trigger_changemusic : "Trigger that changes the currently playing music track. The number of the track to play goes in sounds just like worldspawn."
 [
 sounds(integer) : "Track Number (ex 02->xx)" :  : "CD track or audio file to play from within music folder"
