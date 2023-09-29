@@ -904,6 +904,11 @@ SPAWNFLAGS
 
 Removes shotgun upon touch. You can also set "reset_items" in the worldspawn entity to accomplish an axe only start.
 */
+/*QUAKED trigger_changeskybox (.5 .5 .5) ? X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
+A trigger brush that changes the skybox. Place skybox files in gfx/env */
+/*QUAKED trigger_skybox (.7 .7 .7) X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
+A point entity that changes the skybox when triggered. Place skybox files in gfx/env
+*/
 /*QUAKED trigger_changemusic (.5 .5 .5) ? X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 A trigger brush that changes the currently playing music track. The number of the track to play goes in the sounds key (just like worldspawn). */
 /*QUAKED trigger_cdtrack (.7 .7 .7) X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
