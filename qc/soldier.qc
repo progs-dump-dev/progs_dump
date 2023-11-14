@@ -109,7 +109,7 @@ void() GruntFireGrenade =
 	}
 
 	setsize (missile, '0 0 0', '0 0 0');
-	setorigin (missile, self.origin + v_forward * 30 + v_right * 5 + '0 0 16'); //dumptruck_ds
+	setorigin (missile, self.origin); //dumptruck_ds
 };
 
 /*
@@ -219,11 +219,11 @@ void()	army_atk4	=[	$shoot4,	army_atk5	] {ai_face();};
 void()	army_atk5	={
 self.frame = $shoot5;
 self.nextthink = time + .1;
-if (self.style == 5 && self.count < self.t_length) 
+if (self.style == 5 && self.count < self.t_length)
 {
   self.count +=1;
 }
-else 
+else
 {
   self.think = army_atk6;
 }
@@ -243,11 +243,11 @@ void()	army_turret_atk4	=[	$shoot4,	army_turret_atk5	] {ai_face();self.attack_el
 void()	army_turret_atk5	={
 self.frame = $shoot5;
 self.nextthink = time + .1;
-if (self.style == 5 && self.count < self.t_length) 
+if (self.style == 5 && self.count < self.t_length)
 {
   self.count +=1;
 }
-else 
+else
 {
   self.think = army_turret_atk6;
 }
