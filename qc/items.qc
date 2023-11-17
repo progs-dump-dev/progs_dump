@@ -1851,6 +1851,7 @@ void() item_artifact_invulnerability =
 	self.noise = "items/protect.wav";
 	// setmodel (self, "progs/invulner.mdl");
 	body_model ("progs/invulner.mdl");
+	if !(self.netname) // custom name -- dumptruck_ds
 	self.netname = "Pentagram of Protection";
 	self.items = IT_INVULNERABILITY;
 	setsize (self, '-16 -16 -24', '16 16 32');
@@ -1877,6 +1878,7 @@ void() item_artifact_envirosuit =
 	self.noise = "items/suit.wav";
 	// setmodel (self, "progs/suit.mdl");
 	body_model ("progs/suit.mdl");
+	if !(self.netname) // custom name -- dumptruck_ds
 	self.netname = "Biosuit";
 	self.items = IT_SUIT;
 	setsize (self, '-16 -16 -24', '16 16 32');
@@ -1905,6 +1907,7 @@ void() item_artifact_invisibility =
 	self.noise = "items/inv1.wav";
 	// setmodel (self, "progs/invisibl.mdl");
 	body_model ("progs/invisibl.mdl");
+	if !(self.netname) // custom name -- dumptruck_ds
 	self.netname = "Ring of Shadows";
 	self.items = IT_INVISIBILITY;
 	setsize (self, '-16 -16 -24', '16 16 32');

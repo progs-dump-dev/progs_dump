@@ -4,6 +4,8 @@
 * Added some missing keys in FGD / DEF files
 * Fixed missing ammo check on Style 4 Ogres
 * Fixed crash in some engines caused by ellipses in Autosave string (client.qc)
+* Added custom netname support for Pentagram of Protection, Ring of Shadows
+  and Biosuit
 
 
 3.0.0 September 2022
