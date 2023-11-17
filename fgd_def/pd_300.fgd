@@ -1750,6 +1750,7 @@ Originally unused in the game. Plays the sound of thunder at a random interval. 
 		4: "Screechy Metal"
 	]
 	wait(string) : "Wait before close" : "3"
+	delay(string) : "Delay before trigger"
 	lip(integer) : "Lip" : 8
 	dmg(integer) : "Damage inflicted when blocked" : 2
 	message(string) : "Message if touched"
@@ -2204,6 +2205,7 @@ Check each field's description for more details.
 		//32 : "Plat2 Bottom" : 0
 	]
 	speed(integer) : "Speed" : 150
+	cnt(integer) : "Number of floors when used as elevator"
 	height(integer) : "Travel altitude (can be negative)" : 0
 	health(integer) : "Seconds to wait at bottom if using Start at Top": 5
 	delay(integer) : "Seconds to wait if using Plat2" : 3

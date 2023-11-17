@@ -699,6 +699,7 @@ Key doors are always wait -1.
 "health"	if set, door must be shot open
 "speed"	movement speed (100 default)
 "wait"	wait before returning (3 default, -1 = never return)
+"delay" Delay before trigger
 "lip"	lip remaining at end of move (8 default)
 "dmg"	damage to inflict when blocked (2 default)
 "cnt"	if 1, leave a used key in the player's inventory (0 default)

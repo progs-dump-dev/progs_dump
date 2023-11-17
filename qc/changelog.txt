@@ -1,3 +1,11 @@
+3.0.1 MONTH YEAR
+
+* Fixed inproper projectile origin for Style 4 Grunts
+* Added some missing keys in FGD / DEF files
+* Fixed missing ammo check on Style 4 Ogres
+* Fixed crash in some engines caused by ellipses in Autosave string (client.qc)
+
+
 3.0.0 September 2022
 
 * Fixed QSS crash in mobot.qc (paavohuhtala)

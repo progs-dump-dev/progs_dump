@@ -1141,6 +1141,10 @@ void()	ogre_die3	=[	$death3,	ogre_die4	]
 		{
 			self.ammo_rockets = 2;
 		}
+		if (self.style == 4) // lavaball ogre jaycie erysdren 2021-09-14
+		{
+			self.ammo_rockets = 2;
+		}
 		else if (self.style == 0) //default Ogre
 		{
 			self.ammo_rockets = 2;
