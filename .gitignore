@@ -15,3 +15,15 @@ mapsrc/*-compile.map
 
 # Ironwail screenshots folder
 screenshots/
+spasm0000.png
+maps/TEST_TEMPLATE.map
+maps/test_grunt.map
+maps/test_grunt.lit
+maps/test_grunt.bsp
+maps/test_door_state.map
+maps/test_door_state.lit
+maps/test_door_state.bsp
+maps/random_base2.map
+maps/random_base2.lit
+maps/random_base2.bsp
+maps/imgui.ini
