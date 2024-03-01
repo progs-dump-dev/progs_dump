@@ -1303,9 +1303,15 @@ spawnflag 2 = maintain activator, makes it so the player that triggers the infig
 float INFIGHT_MUTUAL = 1;
 float INFIGHT_PLAYER_ACTIVATION = 2;
 
+float(entity ent) is_valid_infight_target = 
+{
+	return ent.health > 0 && ent.movetype != MOVETYPE_NONE && ent.solid != SOLID_NOT;
+}
+
 void(entity t1, entity t2) make_angry_at =
 {
-	if (t2.health > 0 && t1.health > 0) { // checks if targets are alive
+	if (is_valid_infight_target(t1) && is_valid_infight_target(t2)) 
+	{ // checks if targets are alive
 		if (t1.enemy.classname == "player")
 			t1.oldenemy = t1.enemy;
 		t1.enemy = t2;
