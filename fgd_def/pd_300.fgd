@@ -3485,3 +3485,41 @@ sounds(choices) : "Sound style" : 0 =
 [
 
 ]
+@SolidClass base(Angle, Appearflags, Targetname, Target) = func_slider : "Brush that slides along an axis
+
+Requires an origin brush to be part of the entity. Create an info_notnull and align it where you want the origin brush to end up."
+[
+	speed(integer) : "Speed" : 40
+	dmg(float) : "Base damage to apply"
+	style(choices) : "Damage type: grow increases exponentially, crush continually applies, const applies with pauses between" : "0" = [
+		0 : "grow"
+		1 : "const"
+		2 : "crush"
+	]
+	target(string) : "Reference point for movement"
+	sounds(choices) : "Sound set" = [
+		1: "Stone door"
+		2: "Machine door"
+		3: "Chain door"
+		4: "Metal door"
+		5: "Medieval secret door"
+		6: "Metal secret door"
+		7: "Base secret door"
+		8: "Base plat"
+		9: "Chain plat"
+		10: "Train ratchet"
+	]
+	noise1(string) : "Sound file for the 'stop moving' sound (if set, overrides 'sounds')"
+	noise2(string) : "Sound file for the 'move' sound (if set, overrides 'sounds')"
+	spawnflags(flags) =
+	[
+		1 : "Solid" : 0
+	]
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) color(115 100 240) base(Appearflags, OneTargetname) = trigger_slider :
+"Activates a slider to move a certain distance."
+[
+	target(string) : "Slider to target"
+	distance(float) : "Distance from the slider's target. 0 is initial position, 1 is directly on the target."
+]
