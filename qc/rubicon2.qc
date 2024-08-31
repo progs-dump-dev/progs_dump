@@ -817,10 +817,10 @@ void() make_sparks =
 			{
 				if (self.noise != "")
 					{
-					sound (self, CHAN_AUTO, self.noise, 1, ATTN_STATIC);
+					sound (self, CHAN_AUTO, self.noise, 1, ATTN_NORM);
 					}
 				else
-					sound (self, CHAN_AUTO, "enforcer/enfstop.wav", 1, ATTN_STATIC);
+					sound (self, CHAN_AUTO, "enforcer/enfstop.wav", 1, ATTN_NORM);
 			}
 		SUB_UseTargets();
 		self.nextthink = time + 0.1 + random() * 0.1;
