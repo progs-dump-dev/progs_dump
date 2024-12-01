@@ -21,7 +21,7 @@ jobs:
           unzip fteqcc_linux64.zip
           ./fteqcc64
       - name: Upload progs only
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: progs-dat
           path: |
@@ -51,7 +51,7 @@ jobs:
           cp -r music/ mod-template/my_mod/
           cp -r qc/ mod-template/my_mod/
       - name: Upload mod template
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mod-template
           path: mod-template/
@@ -95,7 +95,7 @@ jobs:
           cp -r wads/ devkit/pd-devkit/
           cp -r readme.txt devkit/pd-devkit/progs_dump_devkit_readme.txt
       - name: Upload devkit
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pd-devkit
           path: devkit/
