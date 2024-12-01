@@ -8,17 +8,13 @@ jobs:
   compile-progs:
     name: Compile progs.dat
     runs-on: ubuntu-latest
-    container: ubuntu:latest
+    container: ghcr.io/progs-dump-dev/fteqcc-docker
     steps:
       - uses: actions/checkout@v3
       - name: Set up folder structure
         shell: bash
         run: |
           cd qc
-          apt update
-          apt install wget zip unzip -y
-          wget https://www.fteqcc.org/dl/fteqcc_linux64.zip
-          unzip fteqcc_linux64.zip
           ./fteqcc64
       - name: Upload progs only
         uses: actions/upload-artifact@v4
