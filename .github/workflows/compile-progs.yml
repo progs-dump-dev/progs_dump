@@ -15,6 +15,7 @@ jobs:
         shell: bash
         run: |
           cd qc
+          apt install wget zip unzip -y
           wget https://www.fteqcc.org/dl/fteqcc_linux64.zip
           unzip fteqcc_linux64.zip
           ./fteqcc64
