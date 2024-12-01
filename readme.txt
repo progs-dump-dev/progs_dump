@@ -83,14 +83,14 @@ progs_dump requires a modern Quake engine and was developed with Quakespasm.
 
 Recommended Quake Source Ports:
 
-Quakespasm (0.95.0 and above) 
+Quakespasm (0.96.3 and above) 
 https://sourceforge.net/projects/quakespasm/files/
 http://quakespasm.sourceforge.net/download.htm
 
-Ironwail (0.6.0 and above)
+Ironwail (0.8.0 and above)
 https://github.com/andrei-drexler/ironwail/releases
 
-vkQuake (1.20.3 or above) 
+vkQuake (1.31.3 or above) 
 https://github.com/Novum/vkQuake/releases
 
 Quakex 
