@@ -8,7 +8,7 @@ jobs:
   compile-progs:
     name: Compile progs.dat
     runs-on: ubuntu-latest
-    container: debian:latest
+    container: ubuntu:latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up folder structure
