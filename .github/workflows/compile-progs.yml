@@ -8,7 +8,7 @@ jobs:
   compile-progs:
     name: Compile progs.dat
     runs-on: ubuntu-latest
-    container: ghcr.io/progs-dump-dev/fteqcc-docker
+    container: ghcr.io/progs-dump-dev/fteqcc-docker:main
     steps:
       - uses: actions/checkout@v3
       - name: Set up folder structure
