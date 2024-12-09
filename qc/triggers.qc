@@ -1779,3 +1779,32 @@ void() trigger_monsterface =
   trigger_monsterface_init();
   // InitTrigger();
 }
+
+void() remove_touch =
+{
+	// from Copper -- dumptruck_ds
+	if (other.movetype == MOVETYPE_NOCLIP)
+		return;
+
+	/* if (other.takedamage && self.nextthink < time)
+	{
+		//self.solid = SOLID_NOT;
+		T_Damage (other, self, self, self.dmg);
+		self.think = hurt_on;
+		self.nextthink = time + 1;
+	} */
+	if (self.estate == STATE_ACTIVE) 	remove(other);
+
+	return;
+};
+
+/*QUAKED trigger_remove (.5 .5 .5) ? X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
+Any object touching this will be removed from the game.
+*/
+void() trigger_remove = {
+	if (SUB_Inhibit ())  // new spawnflags for all entities -- iw
+		return;
+
+	InitTrigger ();
+	self.touch = remove_touch;
+}
