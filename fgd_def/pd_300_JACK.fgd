@@ -2954,3 +2954,9 @@ spawnflags(flags) =
 		1 : "Not in coop" : 0
 	]
 ]
+
+
+@PointClass base(Appearflags, Targetname) = trigger_remove : "Any object touching this will be removed from the game. Use with caution."
+[
+
+]
