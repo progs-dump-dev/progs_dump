@@ -3478,7 +3478,7 @@ sounds(choices) : "Sound style" : 0 =
 	]
 ]
 
-@PointClass base(Appearflags, Targetname) = trigger_remove : "Any object touching this will be removed from the game."
+@PointClass base(Appearflags, Targetname) = trigger_remove : "Any object touching this will be removed from the game. Use with caution."
 [
 
 ]
