@@ -1399,6 +1399,31 @@ void(entity e, float state, float flags) entity_set_state = {
 		if (state == STATE_ACTIVE) door_estate_unlock(e, closealldoors);
 		else door_estate_lock(e, closealldoors);
 	}
+	else if(e.classname == "light") {
+		local entity tempself = self;
+		self = e;
+		if (state == STATE_ACTIVE) {
+			dprint("turning on light ");
+			dprint(self.targetname2);
+			dprint("\n");
+			self.spawnflags = self.spawnflags - START_OFF;
+			if (self.spawnflags & FADE_IN_OUT && !self.style2)
+				light_fade_in();
+			else
+				lightstyle(self.style, lightstyle_lookup(self.style2));
+		}
+		else {
+			dprint("turning off light ");
+			dprint(self.targetname2);
+			dprint("\n");
+			self.spawnflags = self.spawnflags + START_OFF;
+			if (self.spawnflags & FADE_IN_OUT && !self.style2)
+				light_fade_out();
+			else
+				lightstyle(self.style, "a");
+		}
+		self = tempself;
+	}
 	else e.estate = state;
 
 	if (e.is_waiting > 0 && state == STATE_ACTIVE) {
