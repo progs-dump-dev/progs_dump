@@ -333,6 +333,7 @@ NOTE when a trigger_teleport has a targetname it must be triggered to operate, s
 See the `prefab_info_intermissiontext` sample map and refer to the manual for setup."
 [
 	message(string): "Text to show on intermission screen"
+	sounds(integer): "CD Track to play during intermission. This only takes effect on the first page."
 	cnt(integer): "Page number"
 ]
 
@@ -2263,6 +2264,8 @@ Check each field's description for more details.
 	map(string) : "Next map"
 	//target(target_destination) : "Target"
 	message(string) : "Message to show on intermission screen."
+	sounds(integer) : "CD track to show during intermission."
+	sounds2(integer) : "CD track to play during intermission text (if present)"
 	spawnflags(flags) =
 	[
 		1: "No intermission" : 0

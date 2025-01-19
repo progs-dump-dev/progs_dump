@@ -1058,3 +1058,4 @@ void(entity client, float density, vector color) csf_set;
 .string a_red_mdl;
 
 .entity infight_activator;
+.float		sounds2;
