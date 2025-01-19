@@ -1067,19 +1067,28 @@ void() spike_touch =
 	else
 	{
 
-		WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 		if (self.owner.snd_hit)
 		{
-				sound (self, CHAN_WEAPON, self.owner.snd_hit, 1, ATTN_STATIC); //dumptruck_ds
-				WriteByte(MSG_BROADCAST, TE_GUNSHOT);
+			sound (self, CHAN_WEAPON, self.owner.snd_hit, 1, ATTN_STATIC); //dumptruck_ds
+			WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+			WriteByte(MSG_BROADCAST, TE_GUNSHOT);
 		}
 
 		else if (self.classname == "wizspike")
+		{
+			WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 			WriteByte (MSG_BROADCAST, TE_WIZSPIKE);
+		}
 		else if (self.classname == "knightspike")
+		{
+			WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 			WriteByte (MSG_BROADCAST, TE_KNIGHTSPIKE);
-		else
+		}
+		else 
+		{
+			WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 			WriteByte (MSG_BROADCAST, TE_SPIKE);
+		}
 		WriteCoord (MSG_BROADCAST, self.origin_x);
 		WriteCoord (MSG_BROADCAST, self.origin_y);
 		WriteCoord (MSG_BROADCAST, self.origin_z);
