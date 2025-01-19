@@ -25,6 +25,10 @@ void() info_intermission =
 
 void() info_intermissiontext =
 {
+  if (self.sounds <= 0){
+	self.sounds = 2;
+  }
+
   if (self.message == "" || self.cnt == 0)
   {
     objerror("endscreen lacks required fields");
@@ -37,11 +41,16 @@ void(string message) ShowIntermissionMessage =
 	WriteString (MSG_ALL, message);
 }
 
-void() StartMessageIntermission =
+void () StartMessageIntermission = 
+{
+	StartMessageIntermission2(2);
+}
+
+void(float track) StartMessageIntermission2 =
 {
   WriteByte (MSG_ALL, SVC_CDTRACK);
-	WriteByte (MSG_ALL, 2);
-	WriteByte (MSG_ALL, 3);
+  WriteByte (MSG_ALL, track);
+  WriteByte (MSG_ALL, 3);
 }
 
 void() Episode1End =
@@ -166,7 +175,7 @@ float(float start) ShowIntermissionTextEntity =
 			{
 				if (start == 1)
 				{
-					StartMessageIntermission();
+					StartMessageIntermission2(end_message.sounds);
 				}
 				ShowIntermissionMessage(end_message.message);
 				return 1;
@@ -202,7 +211,11 @@ void() ExitIntermission =
 		{
 			if (used_exit.message != "") // favor message on changelevel
 			{
-				StartMessageIntermission();
+				if (used_exit.sounds2)
+					StartMessageIntermission2(used_exit.sounds2);
+				else 
+					StartMessageIntermission();
+
 				ShowIntermissionMessage(used_exit.message);
 				return;
 			}
@@ -278,7 +291,7 @@ void() execute_changelevel =
 		intermission_exittime = time + 2;
 
 	WriteByte (MSG_ALL, SVC_CDTRACK);
-	WriteByte (MSG_ALL, 3);
+	WriteByte (MSG_ALL, used_exit.sounds);
 	WriteByte (MSG_ALL, 3);
 
 	pos = FindIntermission ();
@@ -386,6 +399,10 @@ void() trigger_changelevel =
 		self.is_waiting = 1;
 	}
 	SUB_CheckWaiting();
+
+	if (self.sounds <= 0){
+		self.sounds = 3;
+	}
 
 	self.use = dt_exit_toggle;
 	if (!self.map)
