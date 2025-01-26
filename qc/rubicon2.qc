@@ -340,7 +340,12 @@ void () func_breakable_die = {
 	// this is to ensure that any debris from another func_breakable
 	// which is resting on top of this func_breakable is not left
 	// floating in mid-air after this entity is removed -- iw
-	SUB_DislodgeRestingEntities ();
+	if (DislodgeManager == world)
+	{
+		DislodgeManager = spawn();
+		DislodgeManager.think = SUB_DislodgeRestingEntities;
+	}
+	DislodgeManager.nextthink = time + 1;
 
 	if (self.spawnflags & BREAK_EXPLODE) {
 		if (self.spawnflags & BREAK_CUSTOM) {
