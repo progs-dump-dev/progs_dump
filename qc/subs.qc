@@ -666,6 +666,8 @@ self is going to be removed, to ensure that other entities are not left
 floating.  -- iw
 ================
 */
+entity DislodgeManager;
+
 void() SUB_DislodgeRestingEntities =
 {
 	local entity e;
