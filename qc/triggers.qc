@@ -225,6 +225,150 @@ void() trigger_relay =
 	self.use = SUB_UseTargets;
 };
 
+//=============================================================================
+
+/*QUAKED trigger_random (.5 .5 .5) (-8 -8 -8) (8 8 8) X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
+Similar to trigger_relay, but randomly uses one of its targets when used, instead of all of them. Targets must be defined seqentially. Does not support killtargets, message, or delay.
+
+"target" through "target4" are the random target options
+"noise" through "noise4" are played when the respective target is chosen
+*/
+
+// these spawnflags are cleared upon entity spawn, and are assigned at runtime based upon whether noise# KVs are empty.
+float SF_HAS_NOISE1 = 2;
+float SF_HAS_NOISE2 = 4;
+float SF_HAS_NOISE3 = 8;
+float SF_HAS_NOISE4 = 16;
+
+void() trigger_random_use =
+{
+	local float rand;
+	if (self.health == 1)
+	{
+		// only one target; forgo calculating random
+		rand = 1;
+	}
+	else
+	{
+		// remember, health is how many target KVs there are
+		rand = ( random() * self.health) + 1;
+	}
+
+	dprint("RNG result for trigger_random ");
+	dprint(self.targetname);
+	dprint(": ");
+	dprint(ftos(rand));
+	dprint("\n");
+
+	if (rand >= 4)
+	{
+		SUB_UseSpecificTarget(self.target4, targetname);
+		SUB_UseSpecificTarget(self.target4, targetname2);
+		SUB_UseSpecificTarget(self.target4, targetname3);
+		SUB_UseSpecificTarget(self.target4, targetname4);
+		if (self.spawnflags & SF_HAS_NOISE4)
+		{
+			sound (self, CHAN_AUTO, self.noise4, 1, ATTN_NORM);
+		}
+	}
+	else if (rand >= 3)
+	{
+		SUB_UseSpecificTarget(self.target3, targetname);
+		SUB_UseSpecificTarget(self.target3, targetname2);
+		SUB_UseSpecificTarget(self.target3, targetname3);
+		SUB_UseSpecificTarget(self.target3, targetname4);
+		if (self.spawnflags & SF_HAS_NOISE3)
+		{
+			sound (self, CHAN_AUTO, self.noise3, 1, ATTN_NORM);
+		}
+	}
+	else if (rand >= 2)
+	{
+		SUB_UseSpecificTarget(self.target2, targetname);
+		SUB_UseSpecificTarget(self.target2, targetname2);
+		SUB_UseSpecificTarget(self.target2, targetname3);
+		SUB_UseSpecificTarget(self.target2, targetname4);
+		if (self.spawnflags & SF_HAS_NOISE2)
+		{
+			sound (self, CHAN_AUTO, self.noise2, 1, ATTN_NORM);
+		}
+	}
+	else
+	{
+		SUB_UseSpecificTarget(self.target, targetname);
+		SUB_UseSpecificTarget(self.target, targetname2);
+		SUB_UseSpecificTarget(self.target, targetname3);
+		SUB_UseSpecificTarget(self.target, targetname4);
+		if (self.spawnflags & SF_HAS_NOISE1)
+		{
+			sound (self, CHAN_AUTO, self.noise, 1, ATTN_NORM);
+		}
+	}
+}
+
+void() trigger_random =
+{
+	if (SUB_Inhibit ())  // new spawnflags for all entities -- iw
+		return;
+
+	// check target KVs in sequence; if any are null, assume end of sequence.
+	if (self.target != "")
+	{
+		// using health KV to tell rand func how many choices there are.
+		self.health = 1;
+
+		if ( self.target2 != "" )
+		{
+			self.health = 2;
+			
+			if ( self.target3 != "" )
+			{
+				self.health = 3;
+
+				if ( self.target4 != "" )
+				{
+					self.health = 4;
+				}
+			}
+		}
+	}
+	else
+	{
+		// no target, so remove entity
+		dprint("WARNING: trigger_random");
+		dprint(self.targetname);
+		dprint(" at ");
+		dprint(vtos(self.origin));
+		dprint(" with no target; removing.\n");
+		remove(self);
+	}
+
+	// clear spawnflags if set by mapper
+	self.spawnflags &= ~(SF_HAS_NOISE1|SF_HAS_NOISE2|SF_HAS_NOISE3|SF_HAS_NOISE4);
+
+	if (self.noise != "")
+	{
+		precache_sound (self.noise);
+		self.spawnflags |= SF_HAS_NOISE1;
+	}
+	if (self.noise2 != "")
+	{
+		precache_sound (self.noise2);
+		self.spawnflags |= SF_HAS_NOISE2;
+	}
+	if (self.noise3 != "")
+	{
+		precache_sound (self.noise3);
+		self.spawnflags |= SF_HAS_NOISE3;
+	}
+	if (self.noise4 != "")
+	{
+		precache_sound (self.noise4);
+		self.spawnflags |= SF_HAS_NOISE4;
+	}
+
+	self.use = trigger_random_use;
+};
 
 //=============================================================================
 

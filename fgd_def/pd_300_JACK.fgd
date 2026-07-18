@@ -2167,6 +2167,22 @@ spawnflags(Flags) =
 @SolidClass base(Appearflags, TriggerWait) = trigger_take_weapon : "Trigger: Remove shotgun on touch. Place at 'info_player_start' for an axe only spawn. Make sure and add a 'weapon_shotgun' to your map!"
 []
 @PointClass base(Targetname, Trigger) = trigger_relay : "Trigger relay" []
+
+@PointClass base(Appearflags,Targetname) = trigger_random : "Similar to trigger_relay, but randomly fires one of its targets when used, instead of all of them. Targets must be defined seqentially. Does not support killtargets, message, or delay."
+[
+	target(target_destination) : "Option 1 Target" : : "Target to fire when option 1 is chosen."
+	noise(sound) : "Option 1 Sound" : : "Sound to play when option 1 is chosen."
+	
+	target2(target_destination) : "Option 2 Target" : : "Target to fire when option 2 is chosen."
+	noise2(sound) : "Option 2 Sound" : : "Sound to play when option 2 is chosen."
+	
+	target3(target_destination) : "Option 3 Target" : : "Target to fire when option 3 is chosen."
+	noise3(sound) : "Option 3 Sound" : : "Sound to play when option 3 is chosen."
+	
+	target4(target_destination) : "Option 4 Target" : : "Target to fire when option 4 is chosen."
+	noise4(sound) : "Option 4 Sound" : : "Sound to play when option 4 is chosen."
+]
+
 @SolidClass base(Angle, Appearflags, OneTargetname, TriggerWait) = trigger_monsterjump : "Trigger: Monster jump"
 [
 	speed(integer) : "Jump Speed" : 200
